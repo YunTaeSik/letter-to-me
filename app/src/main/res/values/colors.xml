@@ -7,8 +7,9 @@
     <color name="colorAccent">#6B38FB</color>
 
 
-    <color name="tintColor">#000000</color>
+    <color name="tintColor">#FFFFFF</color>
 
     <color name="textColor">#FF000000</color>
+    <color name="textWhiteColor">#FFFFFFFF</color>
     <color name="textColorHint">#82000000</color>
 </resources>

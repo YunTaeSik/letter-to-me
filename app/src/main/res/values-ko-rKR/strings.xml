@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TSLetter</string>
+
+    <string name="start">"시작"</string>
+
+    <string name="empty_title">"시작하기"</string>
+
+    <string name="empty_letter_content">"나에게 편지를 써주세요.\n예쁜카드들이 등록됩니다."</string>
+</resources>

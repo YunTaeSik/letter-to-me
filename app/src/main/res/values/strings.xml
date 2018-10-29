@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TSLetter</string>
+
+    <string name="start">"Start"</string>
+
+    <string name="empty_title">"Get Started"</string>
+
+    <string name="empty_letter_content">"Please write me a letter.\nPretty cards are registered."</string>
 </resources>
