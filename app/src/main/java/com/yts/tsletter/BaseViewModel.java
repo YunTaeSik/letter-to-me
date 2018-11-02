@@ -6,9 +6,16 @@ import android.view.View;
 
 import com.yts.tsletter.ui.WriteActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 
 public class BaseViewModel extends ViewModel {
+    public void finish(View view) {
+        Context context = view.getContext();
+        if (context instanceof AppCompatActivity) {
+            ((AppCompatActivity) context).finish();
+        }
+    }
 
     public void startWriteActivity(View view) {
         Context context = view.getContext();

@@ -3,8 +3,21 @@
 
     <string name="start">"Start"</string>
     <string name="setting">"Setting"</string>
+    <string name="save">"Save"</string>
+    <string name="write">"Write"</string>
+    <string name="date">"Date"</string>
+    <string name="title">"Title"</string>
+    <string name="basics">"Basics"</string>
+    <string name="content">"Content"</string>
 
     <string name="empty_title">"Get Started"</string>
 
+    <string name="date_to_receive">"Date to receive"</string>
+
     <string name="empty_letter_content">"Please write me a letter.\nPretty cards are registered."</string>
+
+    <!--hint-->
+    <string name="hint_date">"Please select a date to receive the letter."</string>
+    <string name="hint_title">"Please enter the title."</string>
+    <string name="hint_content">"Please enter the content."</string>
 </resources>

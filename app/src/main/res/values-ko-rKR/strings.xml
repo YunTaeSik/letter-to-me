@@ -3,8 +3,22 @@
 
     <string name="start">"시작"</string>
     <string name="setting">"설정"</string>
+    <string name="save">"저장"</string>
+    <string name="write">"글 쓰기"</string>
+    <string name="date">"날짜"</string>
+    <string name="title">"제목"</string>
+    <string name="basics">"기본"</string>
+    <string name="content">"내용"</string>
 
     <string name="empty_title">"시작하기"</string>
 
+    <string name="date_to_receive">"받을 날짜"</string>
+
     <string name="empty_letter_content">"나에게 편지를 써주세요.\n예쁜카드들이 등록됩니다."</string>
+
+    <!--hint-->
+    <string name="hint_date">"편지를 받을 날짜를 선택해주세요."</string>
+    <string name="hint_title">"제목을 입력해주세요."</string>
+    <string name="hint_content">"내용을 입력해주세요."</string>
+
 </resources>
