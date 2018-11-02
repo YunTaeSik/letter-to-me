@@ -110,6 +110,8 @@
                 android:padding="16dp" />
         </LinearLayout>
 
+        <View style="@style/lineView" />
+
         <TextView
             style="@style/SubTitle"
             android:layout_marginTop="16dp"
