@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:foreground="?android:selectableItemBackgroundBorderless"
-                android:onClick="@{(v)->model.addAudio(v)}"
+                android:onClick="@{(v)->model.selectAudio(v)}"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_keyboard_voice_black_24dp" />
         </LinearLayout>

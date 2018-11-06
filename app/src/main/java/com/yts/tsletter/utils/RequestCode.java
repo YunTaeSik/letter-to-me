@@ -8,4 +8,6 @@ public class RequestCode {
 
     public static final int VIDEO_SELECT = 200;
 
+    public static final int AUDIO_SELECT = 300;
+
 }

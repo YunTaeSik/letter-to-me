@@ -42,4 +42,11 @@ public class ShowIntent {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         ((Activity) context).startActivityForResult(intent, requestCode);
     }
+
+    public static void audioSelect(Context context, int requestCode) {
+        Intent intent = new Intent();
+        intent.setType("audio/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        ((Activity) context).startActivityForResult(intent, requestCode);
+    }
 }

@@ -48,7 +48,11 @@ public class WriteEditViewModel extends WriteViewModel {
         setWriteList(write);
     }
 
-    public void addAudio(View view) {
+    public void selectAudio(View view) {
+        ShowIntent.audioSelect(view.getContext(), RequestCode.AUDIO_SELECT);
+    }
+
+    public void addAudio(String path) {
 
     }
 
