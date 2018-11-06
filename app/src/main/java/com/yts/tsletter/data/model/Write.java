@@ -1,5 +1,7 @@
 package com.yts.tsletter.data.model;
 
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -13,7 +15,7 @@ public class Write extends RealmObject {
 
     private String title;
     private String text;
-    private RealmList<Content> contentList;
+    private RealmList<Content> contentList = new RealmList<>();
 
     public long getDate() {
         return date;
@@ -51,8 +53,9 @@ public class Write extends RealmObject {
         return contentList;
     }
 
-    public void setContentList(RealmList<Content> contentList) {
-        this.contentList = contentList;
+
+    public void addContentList(List<Content> contentList) {
+        this.contentList.addAll(contentList);
     }
 }
 

@@ -43,7 +43,7 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
             Content content = (Content) item;
             if (content.isImage()) {
                 return CONTENT_IMAGE_TYPE;
-            } else if (content.isImage()) {
+            } else if (content.isVideo()) {
                 return CONTENT_VIDEO_TYPE;
             }
             return CONTENT_AUDIO_TYPE;
@@ -88,7 +88,7 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
             ContentViewModel model = new ContentViewModel();
             Object item = mWriteList.get(position);
             if (item instanceof Content) {
-
+                model.setContent((Content) item);
             }
             holder.setViewModel(model);
         } else if (viewType == CONTENT_VIDEO_TYPE) {
@@ -96,7 +96,7 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
             ContentViewModel model = new ContentViewModel();
             Object item = mWriteList.get(position);
             if (item instanceof Content) {
-
+                model.setContent((Content) item);
             }
             holder.setViewModel(model);
         } else if (viewType == CONTENT_AUDIO_TYPE) {
@@ -104,7 +104,7 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
             ContentViewModel model = new ContentViewModel();
             Object item = mWriteList.get(position);
             if (item instanceof Content) {
-
+                model.setContent((Content) item);
             }
             holder.setViewModel(model);
         } else if (viewType == HEADER_TYPE) {

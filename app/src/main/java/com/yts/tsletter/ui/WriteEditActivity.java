@@ -1,33 +1,43 @@
 package com.yts.tsletter.ui;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.yalantis.ucrop.UCrop;
 import com.yts.tsletter.BaseActivity;
 import com.yts.tsletter.R;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.databinding.WriteEditBinding;
 import com.yts.tsletter.ui.adapter.WriteEditAdapter;
+import com.yts.tsletter.utils.Convert;
 import com.yts.tsletter.utils.Keys;
-import com.yts.tsletter.viewmodel.write.WriteViewModel;
+import com.yts.tsletter.utils.RequestCode;
+import com.yts.tsletter.utils.ShowIntent;
+import com.yts.tsletter.viewmodel.write.WriteEditViewModel;
 
 import java.util.ArrayList;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import io.reactivex.functions.Consumer;
 
 public class WriteEditActivity extends BaseActivity {
 
     private WriteEditBinding binding;
-    private WriteViewModel model;
+    private WriteEditViewModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_write);
-        model = ViewModelProviders.of(this).get(WriteViewModel.class);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_write_edit);
+        model = ViewModelProviders.of(this).get(WriteEditViewModel.class);
         binding.setModel(model);
         binding.setLifecycleOwner(this);
 
@@ -53,5 +63,32 @@ public class WriteEditActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null && resultCode == Activity.RESULT_OK) {
+            if (requestCode == RequestCode.IMAGE_SELECT) {
+                ShowIntent.imageCroup(this, data, RequestCode.IMAGE_CROP);
+            } else if (requestCode == RequestCode.IMAGE_CROP) {
+                model.addImage(UCrop.getOutput(data).getPath());
+            } else if (requestCode == RequestCode.VIDEO_SELECT) {
+                Uri uri = data.getData();
+                mCompositeDisposable.add(Convert.contentUriToVideo(this, uri).subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String path) throws Exception {
+                        if (model != null) {
+                            model.addVideo(path);
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                }));
+            }
+        }
     }
 }

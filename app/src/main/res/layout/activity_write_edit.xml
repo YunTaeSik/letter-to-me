@@ -9,7 +9,7 @@
 
         <variable
             name="model"
-            type="com.yts.tsletter.viewmodel.write.WriteViewModel" />
+            type="com.yts.tsletter.viewmodel.write.WriteEditViewModel" />
     </data>
 
     <LinearLayout
@@ -29,6 +29,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:foreground="?android:selectableItemBackgroundBorderless"
                 android:onClick="@{(v)->model.finish(v)}"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
@@ -73,6 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:foreground="?android:selectableItemBackgroundBorderless"
+                android:onClick="@{(v)->model.selectImage(v)}"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_image_black_24dp" />
 
@@ -80,6 +83,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:foreground="?android:selectableItemBackgroundBorderless"
+                android:onClick="@{(v)->model.selectVideo(v)}"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_videocam_black_24dp" />
 
@@ -87,6 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:foreground="?android:selectableItemBackgroundBorderless"
+                android:onClick="@{(v)->model.addAudio(v)}"
                 android:padding="16dp"
                 app:srcCompat="@drawable/ic_keyboard_voice_black_24dp" />
         </LinearLayout>
