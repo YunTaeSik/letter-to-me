@@ -22,4 +22,7 @@
     <string name="hint_title">"제목을 입력해주세요."</string>
     <string name="hint_content">"내용을 입력해주세요."</string>
 
+    <!--error-->
+    <string name="error_receivedate">"편지를 받을 날짜를 설정해주세요."</string>
+
 </resources>

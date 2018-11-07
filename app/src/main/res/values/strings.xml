@@ -21,4 +21,8 @@
     <string name="hint_date">"Please select a date to receive the letter."</string>
     <string name="hint_title">"Please enter the title."</string>
     <string name="hint_content">"Please enter the content."</string>
+
+    <!--error-->
+    <string name="error_receivedate">"Please set the date to receive the letter."</string>
+
 </resources>

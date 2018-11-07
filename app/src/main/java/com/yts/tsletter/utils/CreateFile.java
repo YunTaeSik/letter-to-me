@@ -33,4 +33,26 @@ public class CreateFile {
         }
         return null;
     }
+
+    public static File createAudio(Context context, Uri uri) {
+        try {
+            ContextWrapper contextWrapper = new ContextWrapper(context);
+            File file = contextWrapper.getCacheDir(); // 프로바이더의 이름이 같아야함 provider.xml
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File audio = new File(file, System.currentTimeMillis() + ".m4a");
+
+            InputStream inputStream = context.getContentResolver().openInputStream(uri);
+
+            OutputStream out = new FileOutputStream(audio);
+            out.write(IOUtils.readInputStreamFully(inputStream));
+            out.close();
+            inputStream.close();
+            return audio;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

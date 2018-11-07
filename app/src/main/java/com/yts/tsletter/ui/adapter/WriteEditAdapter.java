@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.yts.tsletter.R;
+import com.yts.tsletter.callback.WriteEditCallback;
 import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.databinding.ContentAudioItemBinding;
@@ -11,6 +12,7 @@ import com.yts.tsletter.databinding.ContentImageItemBinding;
 import com.yts.tsletter.databinding.ContentVideoItemBinding;
 import com.yts.tsletter.databinding.WriteHeaderItemBinding;
 import com.yts.tsletter.viewmodel.write.ContentViewModel;
+import com.yts.tsletter.viewmodel.write.WriteEditHeaderViewModel;
 import com.yts.tsletter.viewmodel.write.WriteHeaderViewModel;
 
 import java.util.List;
@@ -26,9 +28,11 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
     private final int CONTENT_AUDIO_TYPE = 3;
 
     private List<Object> mWriteList;
+    private WriteEditCallback mWriteEditCallback;
 
-    public WriteEditAdapter(List<Object> writeList) {
+    public WriteEditAdapter(List<Object> writeList, WriteEditCallback writeEditCallback) {
         mWriteList = writeList;
+        mWriteEditCallback = writeEditCallback;
     }
 
     public void setWriteList(List<Object> writeList) {
@@ -89,30 +93,42 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
             Object item = mWriteList.get(position);
             if (item instanceof Content) {
                 model.setContent((Content) item);
+                model.setPosition(position);
+                model.setWriteEditCallback(mWriteEditCallback);
             }
             holder.setViewModel(model);
         } else if (viewType == CONTENT_VIDEO_TYPE) {
             ContentVideoViewHolder holder = (ContentVideoViewHolder) viewHolder;
             ContentViewModel model = new ContentViewModel();
+
+            model.setIsEdit(true);
             Object item = mWriteList.get(position);
             if (item instanceof Content) {
                 model.setContent((Content) item);
+                model.setPosition(position);
+                model.setWriteEditCallback(mWriteEditCallback);
             }
             holder.setViewModel(model);
         } else if (viewType == CONTENT_AUDIO_TYPE) {
             ContentAudioViewHolder holder = (ContentAudioViewHolder) viewHolder;
             ContentViewModel model = new ContentViewModel();
+            model.setIsEdit(true);
+
             Object item = mWriteList.get(position);
             if (item instanceof Content) {
                 model.setContent((Content) item);
+                model.setPosition(position);
+                model.setWriteEditCallback(mWriteEditCallback);
             }
             holder.setViewModel(model);
         } else if (viewType == HEADER_TYPE) {
             WriteHeaderViewHolder holder = (WriteHeaderViewHolder) viewHolder;
-            WriteHeaderViewModel model = new WriteHeaderViewModel();
+            WriteEditHeaderViewModel model = new WriteEditHeaderViewModel();
+            model.setWriteEditCallback(mWriteEditCallback);
+
             Object item = mWriteList.get(position);
             if (item instanceof Write) {
-                //   model.setUser((User) item);
+                model.setWrite((Write) item);
             }
             holder.setViewModel(model);
         }
@@ -134,7 +150,7 @@ public class WriteEditAdapter extends RecyclerView.Adapter {
             this.binding = binding;
         }
 
-        public void setViewModel(WriteHeaderViewModel model) {
+        public void setViewModel(WriteEditHeaderViewModel model) {
             binding.setModel(model);
             binding.executePendingBindings();
         }

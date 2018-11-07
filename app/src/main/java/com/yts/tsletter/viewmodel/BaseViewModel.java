@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 
+import com.yts.tsletter.data.TSLiveData;
 import com.yts.tsletter.ui.WriteEditActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModel;
 import io.realm.Realm;
 
 public class BaseViewModel extends ViewModel {
+    public TSLiveData<Boolean> isLoading = new TSLiveData<>(false);
     protected Realm mRealm = Realm.getDefaultInstance();
 
     public void finish(View view) {

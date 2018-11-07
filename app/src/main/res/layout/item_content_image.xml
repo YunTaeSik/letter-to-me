@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:hint="@string/hint_content"
+            android:onTextChanged="@{(text, start, before, count)->model.text(text)}"
             android:padding="16dp" />
 
     </LinearLayout>

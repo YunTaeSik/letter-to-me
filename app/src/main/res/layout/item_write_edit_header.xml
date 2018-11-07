@@ -8,9 +8,11 @@
 
         <import type="android.view.View" />
 
+        <import type="com.yts.tsletter.utils.DateFormat" />
+
         <variable
             name="model"
-            type="com.yts.tsletter.viewmodel.write.WriteHeaderViewModel" />
+            type="com.yts.tsletter.viewmodel.write.WriteEditHeaderViewModel" />
     </data>
 
     <LinearLayout
@@ -40,6 +42,8 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatEditText
+                setTimePattern="@{DateFormat.DATE_FORMAT}"
+                setTimeText="@{model.mWrite.receiveDate}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,6 +52,7 @@
                 android:focusableInTouchMode="false"
                 android:gravity="end"
                 android:hint="@string/hint_date"
+                android:onClick="@{()->model.onReceiveDateChange()}"
                 android:padding="16dp" />
         </LinearLayout>
         <!--제목-->
@@ -70,6 +75,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onTextChanged="@{(text, start, before, count)->model.title(text)}"
                 android:background="@null"
                 android:gravity="end"
                 android:hint="@string/hint_title"
@@ -81,9 +87,11 @@
         <TextView
             style="@style/SubTitle"
             android:layout_marginTop="16dp"
-            android:text="@string/content" />
+            android:text="@string/content"
+            android:textColor="@color/textColor" />
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:onTextChanged="@{(text, start, before, count)->model.text(text)}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"

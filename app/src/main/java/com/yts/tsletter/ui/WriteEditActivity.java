@@ -9,6 +9,7 @@ import android.util.Log;
 import com.yalantis.ucrop.UCrop;
 import com.yts.tsletter.BaseActivity;
 import com.yts.tsletter.R;
+import com.yts.tsletter.callback.WriteEditCallback;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.databinding.WriteEditBinding;
 import com.yts.tsletter.ui.adapter.WriteEditAdapter;
@@ -28,7 +29,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.functions.Consumer;
 
-public class WriteEditActivity extends BaseActivity {
+public class WriteEditActivity extends BaseActivity implements WriteEditCallback {
 
     private WriteEditBinding binding;
     private WriteEditViewModel model;
@@ -56,7 +57,7 @@ public class WriteEditActivity extends BaseActivity {
                     adapter.setWriteList(objects);
                 } else {
                     LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
-                    adapter = new WriteEditAdapter(objects);
+                    adapter = new WriteEditAdapter(objects, WriteEditActivity.this);
                     adapter.setHasStableIds(true);
                     view.setLayoutManager(manager);
                     view.setAdapter(adapter);
@@ -75,20 +76,71 @@ public class WriteEditActivity extends BaseActivity {
                 model.addImage(UCrop.getOutput(data).getPath());
             } else if (requestCode == RequestCode.VIDEO_SELECT) {
                 Uri uri = data.getData();
-                mCompositeDisposable.add(Convert.contentUriToVideo(this, uri).subscribe(new Consumer<String>() {
-                    @Override
-                    public void accept(String path) throws Exception {
-                        if (model != null) {
-                            model.addVideo(path);
+                if (model != null) {
+                    model.isLoading.setValue(true);
+                    mCompositeDisposable.add(Convert.contentUriToVideo(this, uri).subscribe(new Consumer<String>() {
+                        @Override
+                        public void accept(String path) throws Exception {
+                            if (model != null) {
+                                model.addVideo(path);
+                                model.isLoading.setValue(false);
+                            }
                         }
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
 
-                    }
-                }));
+                        }
+                    }));
+                }
+            } else if (requestCode == RequestCode.AUDIO_SELECT) {
+                Uri uri = data.getData();
+                if (model != null) {
+                    model.isLoading.setValue(true);
+                    mCompositeDisposable.add(Convert.contentUriToAudio(this, uri).subscribe(new Consumer<String>() {
+                        @Override
+                        public void accept(String path) throws Exception {
+                            if (model != null) {
+                                model.addVideo(path);
+                                model.isLoading.setValue(false);
+                            }
+                        }
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
+
+                        }
+                    }));
+                }
             }
+        }
+    }
+
+    @Override
+    public void onReceiveDateChange() {
+        if (model != null) {
+            model.receiveDateChange(this);
+        }
+    }
+
+    @Override
+    public void onTitleChange(String title) {
+        if (model != null) {
+            model.changeTitle(title);
+        }
+    }
+
+    @Override
+    public void onTextChange(String text) {
+        if (model != null) {
+            model.changeText(text);
+        }
+    }
+
+    @Override
+    public void onContentTextChange(int position, String text) {
+        if (model != null) {
+            model.changeContentText(position, text);
         }
     }
 }

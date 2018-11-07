@@ -12,90 +12,108 @@
             type="com.yts.tsletter.viewmodel.write.WriteEditViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:animateLayoutChanges="true">
 
-        <!--해더-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background"
-            android:elevation="4dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
+            <!--해더-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:selectableItemBackgroundBorderless"
-                android:onClick="@{(v)->model.finish(v)}"
-                android:padding="16dp"
-                app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+                android:background="@color/background"
+                android:elevation="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.finish(v)}"
+                    android:padding="16dp"
+                    app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="3.0"
+                    android:text="@string/write"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.save(v)}"
+                    android:padding="16dp"
+                    android:text="@string/save"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_write"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:padding="16dp"
-                android:shadowDx="5"
-                android:shadowDy="5"
-                android:shadowRadius="3.0"
-                android:text="@string/write"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:foreground="@null" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+            <View style="@style/lineView" />
+
+            <!--이미지 비디오 오디오-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="@string/save"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.selectImage(v)}"
+                    android:padding="16dp"
+                    app:srcCompat="@drawable/ic_image_black_24dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.selectVideo(v)}"
+                    android:padding="16dp"
+                    app:srcCompat="@drawable/ic_videocam_black_24dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.selectAudio(v)}"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_keyboard_voice_black_24dp" />
+            </LinearLayout>
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_write"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:foreground="@null" />
-
-        <View style="@style/lineView" />
-
-        <!--이미지 비디오 오디오-->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ProgressBar
+            setVisible="@{model.isLoading}"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="?android:selectableItemBackgroundBorderless"
-                android:onClick="@{(v)->model.selectImage(v)}"
-                android:padding="16dp"
-                app:srcCompat="@drawable/ic_image_black_24dp" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="?android:selectableItemBackgroundBorderless"
-                android:onClick="@{(v)->model.selectVideo(v)}"
-                android:padding="16dp"
-                app:srcCompat="@drawable/ic_videocam_black_24dp" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:foreground="?android:selectableItemBackgroundBorderless"
-                android:onClick="@{(v)->model.selectAudio(v)}"
-                android:padding="16dp"
-                app:srcCompat="@drawable/ic_keyboard_voice_black_24dp" />
-        </LinearLayout>
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,13 +1,23 @@
 package com.yts.tsletter.viewmodel.write;
 
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.content.Context;
 import android.view.View;
+import android.widget.DatePicker;
 
+import com.yts.tsletter.R;
 import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
+import com.yts.tsletter.data.realm.RealmService;
+import com.yts.tsletter.ui.dialog.DateSelectDialog;
 import com.yts.tsletter.utils.RequestCode;
+import com.yts.tsletter.utils.SendBroadcast;
 import com.yts.tsletter.utils.ShowIntent;
+import com.yts.tsletter.utils.ToastMake;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class WriteEditViewModel extends WriteViewModel {
@@ -53,8 +63,87 @@ public class WriteEditViewModel extends WriteViewModel {
     }
 
     public void addAudio(String path) {
-
+        Write write = mWrite.getValue();
+        if (write != null) {
+            List<Content> contentList = new ArrayList<>();
+            Content content = new Content();
+            content.setPath(path);
+            content.setMimeType("audio");
+            contentList.add(content);
+            write.addContentList(contentList);
+        }
+        mWrite.setValue(write);
+        setWriteList(write);
     }
 
+
+    public void receiveDateChange(Context context) {
+        if (mWrite.getValue() != null) {
+            DateSelectDialog.start(context, mWrite.getValue().getReceiveDate(), new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                    Write write = mWrite.getValue();
+
+                    GregorianCalendar newCalendar = new GregorianCalendar();
+                    newCalendar.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
+
+                    write.setReceiveDate(newCalendar.getTimeInMillis());
+
+                    mWrite.setValue(write);
+                    setWriteList(write);
+                }
+            });
+        }
+    }
+
+    public void changeTitle(String title) {
+        if (mWrite != null && mWrite.getValue() != null) {
+            Write write = mWrite.getValue();
+            write.setTitle(title);
+        }
+    }
+
+    public void changeText(String text) {
+        if (mWrite != null && mWrite.getValue() != null) {
+            Write write = mWrite.getValue();
+            write.setText(text);
+        }
+    }
+
+    public void changeContentText(int position, String text) {
+        if (mWrite != null && mWrite.getValue() != null) {
+            Write write = mWrite.getValue();
+            try {
+                if (write.getContentList() != null && write.getContentList().size() > position) {
+                    write.getContentList().get(position).setText(text);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void save(View view) {
+        Context context = view.getContext();
+
+        Write write = mWrite.getValue();
+        if (write != null) {
+            if (write.getReceiveDate() == 0) {
+                ToastMake.make(context, R.string.error_receivedate);
+                return;
+            }
+            isLoading.setValue(true);
+            write.setDate(System.currentTimeMillis());
+
+            RealmService.saveWrite(mRealm, write);
+            isLoading.setValue(false);
+
+            SendBroadcast.saveWrite(context);
+
+            if (context instanceof Activity) {
+                ((Activity) context).finish();
+            }
+        }
+    }
 
 }
