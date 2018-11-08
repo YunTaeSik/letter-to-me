@@ -31,7 +31,7 @@ public class DateFormat {
         return getCalendar(date).get(Calendar.DAY_OF_WEEK);
     }
 
-    public static boolean isView(long date) {
+    public static boolean isBlindView(long date) {
         return System.currentTimeMillis() <= date;
     }
 

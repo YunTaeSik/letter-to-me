@@ -2,9 +2,11 @@ package com.yts.tsletter.bindingAdapter;
 
 
 import android.content.Context;
+import android.view.View;
 import android.widget.TextView;
 
 import com.yts.tsletter.R;
+import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.utils.DateFormat;
 
@@ -60,6 +62,34 @@ public class TextBindingAdapter {
             view.setText(write.getReceiveDateDay());
             int week = DateFormat.getWeek(write.getReceiveDate());
             setWeekTextColor(view, week);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @BindingAdapter({"setWriteTitleTextColor"})
+    public static void setWriteTitleTextColor(TextView view, Write write) {
+        try {
+            Context context = view.getContext();
+            if (write.getContentList() != null && write.getContentList().size() > 0) {
+                view.setTextColor(ContextCompat.getColor(context, R.color.white));
+            } else {
+                view.setTextColor(ContextCompat.getColor(context, R.color.textColor));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @BindingAdapter({"setWriteTextTextColor"})
+    public static void setWriteTextTextColor(TextView view, Write write) {
+        try {
+            Context context = view.getContext();
+            if (write.getContentList() != null && write.getContentList().size() > 0) {
+                view.setTextColor(ContextCompat.getColor(context, R.color.white));
+            } else {
+                view.setTextColor(ContextCompat.getColor(context, R.color.gray_light));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
