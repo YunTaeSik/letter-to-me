@@ -88,6 +88,9 @@ public class WriteEditViewModel extends WriteViewModel {
                     newCalendar.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
 
                     write.setReceiveDate(newCalendar.getTimeInMillis());
+                    write.setReceiveDateYear(String.valueOf(year));
+                    write.setReceiveDateMonth(String.valueOf(monthOfYear));
+                    write.setReceiveDateDay(String.valueOf(dayOfMonth));
 
                     mWrite.setValue(write);
                     setWriteList(write);

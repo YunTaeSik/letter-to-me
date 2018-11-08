@@ -24,76 +24,105 @@
             android:layout_weight="1"
             android:animateLayoutChanges="true">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <com.google.android.material.card.MaterialCardView
+                <TextView
+                    android:id="@+id/text_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="8dp"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_gray_36dp"
+                    android:drawableRight="@drawable/ic_keyboard_arrow_down_gray_36dp"
+                    android:drawablePadding="2dp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@{model.mCurrentYear}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="2018" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="4dp"
-                    app:cardBackgroundColor="@color/background"
-                    app:cardElevation="8dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintHeight_percent="0.6">
+                    android:layout_height="match_parent">
 
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_write"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent" />
 
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/animationView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:onClick="@{(v)->model.startLottieAnimation(v)}"
-                            app:lottie_fileName="pencil_write.json" />
-
-                        <View
-                            style="@style/lineView"
-                            android:layout_marginBottom="8dp" />
+                    <com.google.android.material.card.MaterialCardView
+                        setVisible="@{model.mWriteList}"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="4dp"
+                        app:cardBackgroundColor="@color/background"
+                        app:cardElevation="8dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintHeight_percent="0.6">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/background"
-                            android:gravity="center"
+                            android:layout_height="match_parent"
                             android:orientation="vertical">
 
-                            <TextView
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/animationView"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="8dp"
-                                android:text="@string/empty_title"
-                                android:textColor="@color/textColor"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:onClick="@{(v)->model.startLottieAnimation(v)}"
+                                app:lottie_fileName="pencil_write.json" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <View
+                                style="@style/lineView"
+                                android:layout_marginBottom="8dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/background"
                                 android:gravity="center"
-                                android:text="@string/empty_letter_content"
-                                android:textColor="@color/textColor"
-                                android:textSize="12sp" />
+                                android:orientation="vertical">
 
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="8dp"
-                                android:onClick="@{(v)->model.startWriteActivity(v)}"
-                                android:tag="trans"
-                                android:text="@string/start"
-                                android:textColor="@color/textWhiteColor"
-                                android:textSize="12sp"
-                                app:backgroundTint="@color/colorAccent"
-                                app:cornerRadius="4dp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="8dp"
+                                    android:text="@string/empty_title"
+                                    android:textColor="@color/textColor"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/empty_letter_content"
+                                    android:textColor="@color/textColor"
+                                    android:textSize="12sp" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="8dp"
+                                    android:onClick="@{(v)->model.startWriteActivity(v)}"
+                                    android:tag="trans"
+                                    android:text="@string/start"
+                                    android:textColor="@color/textWhiteColor"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/colorAccent"
+                                    app:cornerRadius="4dp" />
+                            </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
 
             <com.google.android.material.bottomappbar.BottomAppBar
                 android:id="@+id/bottom_app_bar"

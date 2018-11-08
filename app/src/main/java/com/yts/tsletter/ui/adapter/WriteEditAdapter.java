@@ -13,7 +13,6 @@ import com.yts.tsletter.databinding.ContentVideoItemBinding;
 import com.yts.tsletter.databinding.WriteHeaderItemBinding;
 import com.yts.tsletter.viewmodel.write.ContentViewModel;
 import com.yts.tsletter.viewmodel.write.WriteEditHeaderViewModel;
-import com.yts.tsletter.viewmodel.write.WriteHeaderViewModel;
 
 import java.util.List;
 

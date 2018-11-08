@@ -15,5 +15,6 @@ public class DateSelectDialog {
 
         DatePickerDialog pickerDialog = new DatePickerDialog(context, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
         pickerDialog.show();
+
     }
 }

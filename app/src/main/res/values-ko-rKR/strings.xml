@@ -21,6 +21,7 @@
     <string name="hint_date">"편지를 받을 날짜를 선택해주세요."</string>
     <string name="hint_title">"제목을 입력해주세요."</string>
     <string name="hint_content">"내용을 입력해주세요."</string>
+    <string name="hint_unpublished">"아직 공개되지 않은\n편지입니다."</string>
 
     <!--error-->
     <string name="error_receivedate">"편지를 받을 날짜를 설정해주세요."</string>

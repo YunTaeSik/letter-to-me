@@ -27,6 +27,14 @@ public class DateFormat {
         return calendar;
     }
 
+    public static int getWeek(long date) {
+        return getCalendar(date).get(Calendar.DAY_OF_WEEK);
+    }
+
+    public static boolean isView(long date) {
+        return System.currentTimeMillis() <= date;
+    }
+
     public static boolean isTodayVerseRefresh(long time) {
         Calendar current = Calendar.getInstance();
         GregorianCalendar curreuntCalendar = new GregorianCalendar(current.get(Calendar.YEAR), current.get(Calendar.MONTH), current.get(Calendar.DATE), 0, 0, 0);

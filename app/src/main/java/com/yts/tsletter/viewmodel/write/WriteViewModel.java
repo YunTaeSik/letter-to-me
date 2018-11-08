@@ -10,6 +10,9 @@ public class WriteViewModel extends BaseViewModel {
     public TSLiveData<Write> mWrite = new TSLiveData<>(new Write());
     public TSLiveData<ArrayList<Object>> mWriteList = new TSLiveData<>();
 
+    public void setWrite(Write write) {
+        mWrite.setValue(write);
+    }
 
     public void setWriteList(Write write) {
         mWrite.setValue(write);

@@ -10,6 +10,7 @@ import com.yts.tsletter.ui.WriteEditActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
+import io.reactivex.disposables.CompositeDisposable;
 import io.realm.Realm;
 
 public class BaseViewModel extends ViewModel {
