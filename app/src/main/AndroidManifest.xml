@@ -22,6 +22,9 @@
             android:name=".ui.WriteEditActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.ReadActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait" />
 

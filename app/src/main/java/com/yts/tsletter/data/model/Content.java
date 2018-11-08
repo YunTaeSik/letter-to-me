@@ -1,8 +1,11 @@
 package com.yts.tsletter.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import io.realm.RealmObject;
 
-public class Content extends RealmObject {
+public class Content extends RealmObject implements Parcelable {
     private String path;
     private String text;
     private String mimeType;
@@ -52,4 +55,37 @@ public class Content extends RealmObject {
         return false;
     }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.path);
+        dest.writeString(this.text);
+        dest.writeString(this.mimeType);
+    }
+
+    public Content() {
+    }
+
+    protected Content(Parcel in) {
+        this.path = in.readString();
+        this.text = in.readString();
+        this.mimeType = in.readString();
+    }
+
+    public static final Parcelable.Creator<Content> CREATOR = new Parcelable.Creator<Content>() {
+        @Override
+        public Content createFromParcel(Parcel source) {
+            return new Content(source);
+        }
+
+        @Override
+        public Content[] newArray(int size) {
+            return new Content[size];
+        }
+    };
 }
