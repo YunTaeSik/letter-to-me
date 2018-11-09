@@ -9,6 +9,10 @@
     <string name="title">"Title"</string>
     <string name="basics">"Basics"</string>
     <string name="content">"Content"</string>
+    <string name="cancel">"Cancel"</string>
+    <string name="letter">"Letter"</string>
+    <string name="delete">"Delete"</string>
+
 
     <string name="empty_title">"Get Started"</string>
     <string name="edit_image">"Edit Image"</string>
@@ -23,7 +27,13 @@
     <string name="hint_content">"Please enter the content."</string>
     <string name="hint_unpublished">"This is an\nunreleased letter."</string>
 
+    <!--message-->
+    <string name="message_save_write">"If you save it, you can not edit it. Do you want to save it?"</string>
+    <string name="message_delete_write">"Are you sure you want to delete this letter?"</string>
+
+
     <!--error-->
     <string name="error_receivedate">"Please set the date to receive the letter."</string>
+    <string name="error_title">"Please enter the title."</string>
 
 </resources>

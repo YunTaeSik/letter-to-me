@@ -28,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:cardUseCompatPadding="false"
+                app:cardCornerRadius="4dp"
                 app:layout_constraintDimensionRatio="1:1">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -40,6 +41,8 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            setEdit="@{model.isEdit}"
+            setVisible="@{model.mContent}"
             android:background="@null"
             android:hint="@string/hint_content"
             android:onTextChanged="@{(text, start, before, count)->model.text(text)}"

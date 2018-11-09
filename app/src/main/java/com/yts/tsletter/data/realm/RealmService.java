@@ -15,8 +15,16 @@ public class RealmService {
         realm.commitTransaction();
     }
 
+    public static void deleteWrite(Realm realm, Write write) {
+        realm.beginTransaction();
+        realm.where(Write.class).equalTo("date", write.getDate()).findAll().deleteAllFromRealm();
+        realm.commitTransaction();
+    }
+
     public static List<Write> getWriteList(Realm realm, String year) {
         List<Write> writeList = realm.copyFromRealm(realm.where(Write.class).equalTo("receiveDateYear", year).findAll().sort("receiveDate", Sort.DESCENDING));
         return writeList;
     }
+
+
 }

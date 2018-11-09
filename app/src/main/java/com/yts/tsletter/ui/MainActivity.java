@@ -100,7 +100,7 @@ public class MainActivity extends BaseActivity {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action != null) {
-                if (action.equals(SendBroadcast.SAVE_WRITE)) {
+                if (action.equals(SendBroadcast.SAVE_WRITE) || action.equals(SendBroadcast.DELETE_WRITE)) {
                     if (model != null) {
                         model.refreshWriteList();
                     }
@@ -112,6 +112,7 @@ public class MainActivity extends BaseActivity {
     private IntentFilter getIntentFilter() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SendBroadcast.SAVE_WRITE);
+        intentFilter.addAction(SendBroadcast.DELETE_WRITE);
         return intentFilter;
     }
 }

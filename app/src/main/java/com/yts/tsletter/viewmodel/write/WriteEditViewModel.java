@@ -3,6 +3,7 @@ package com.yts.tsletter.viewmodel.write;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.DatePicker;
 
@@ -10,6 +11,7 @@ import com.yts.tsletter.R;
 import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.data.realm.RealmService;
+import com.yts.tsletter.ui.dialog.AlertDialogCreate;
 import com.yts.tsletter.ui.dialog.DateSelectDialog;
 import com.yts.tsletter.utils.RequestCode;
 import com.yts.tsletter.utils.SendBroadcast;
@@ -127,25 +129,35 @@ public class WriteEditViewModel extends WriteViewModel {
     }
 
     public void save(View view) {
-        Context context = view.getContext();
+        final Context context = view.getContext();
 
-        Write write = mWrite.getValue();
+        final Write write = mWrite.getValue();
         if (write != null) {
             if (write.getReceiveDate() == 0) {
                 ToastMake.make(context, R.string.error_receivedate);
                 return;
+            } else if (write.getTitle() == null || write.getTitle().length() == 0) {
+                ToastMake.make(context, R.string.error_title);
+                return;
             }
-            isLoading.setValue(true);
-            write.setDate(System.currentTimeMillis());
+            new AlertDialogCreate(context).saveWrite(new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    isLoading.setValue(true);
+                    write.setDate(System.currentTimeMillis());
 
-            RealmService.saveWrite(mRealm, write);
-            isLoading.setValue(false);
+                    RealmService.saveWrite(mRealm, write);
+                    isLoading.setValue(false);
 
-            SendBroadcast.saveWrite(context);
+                    SendBroadcast.saveWrite(context);
 
-            if (context instanceof Activity) {
-                ((Activity) context).finish();
-            }
+                    if (context instanceof Activity) {
+                        ((Activity) context).finish();
+                    }
+                }
+            });
+
+
         }
     }
 

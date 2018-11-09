@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ReadHeaderItemBinding">
+
+        <import type="android.view.View" />
+
+        <import type="com.yts.tsletter.utils.DateFormat" />
+
+        <variable
+            name="model"
+            type="com.yts.tsletter.viewmodel.write.ReadHeaderViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            setTimePattern="@{DateFormat.WRITE_RECEIVE_FORMAT}"
+            setTimeText="@{model.mWrite.receiveDate}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:textColor="@color/gray_light"
+            android:textScaleX="0.8"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="@{model.mWrite.title}"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@{model.mWrite.text}" />
+    </LinearLayout>
+
+</layout>

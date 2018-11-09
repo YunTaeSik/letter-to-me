@@ -4,11 +4,13 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.google.android.material.card.MaterialCardView;
+import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.utils.DateFormat;
 
 import java.util.List;
 
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.BindingAdapter;
 
@@ -21,6 +23,18 @@ public class VisibleBindingAdapter {
         } else {
             view.setVisibility(View.GONE);
         }
+    }
+
+    @BindingAdapter({"setVisible", "setEdit"})
+    public static void setVisible(AppCompatEditText view, Content content, Boolean isEdit) {
+        boolean edit = isEdit != null ? isEdit : false;
+        String text = content.getText();
+        if ((text == null || text.length() == 0) && !edit) {
+            view.setVisibility(View.INVISIBLE);
+        } else {
+            view.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @BindingAdapter({"setVisible"})

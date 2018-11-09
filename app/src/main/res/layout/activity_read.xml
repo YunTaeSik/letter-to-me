@@ -7,31 +7,103 @@
 
         <import type="android.view.View" />
 
+        <import type="com.yts.tsletter.utils.DateFormat" />
+
+
         <variable
             name="model"
             type="com.yts.tsletter.viewmodel.write.WriteViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:selectableItemBackgroundBorderless"
-                android:onClick="@{(v)->model.finish(v)}"
-                android:padding="16dp"
-                android:tint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.finish(v)}"
+                    android:padding="16dp"
+                    android:tint="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:selectableItemBackgroundBorderless"
+                    android:onClick="@{(v)->model.deleteWrite(v)}"
+                    android:padding="16dp"
+                    android:tint="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_delete_black_24dp" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_read"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <!--블라인드뷰-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    setBlindVisible="@{model.mWrite}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_quote_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_quote_left_24dp" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_quote_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:srcCompat="@drawable/ic_quote_right_24dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_unpublished"
+                        android:textColor="@color/gray_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
