@@ -26,6 +26,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                android:onClick="@{(v)->model.startImageViewer(v)}"
                 android:layout_height="0dp"
                 app:cardUseCompatPadding="false"
                 app:cardCornerRadius="4dp"

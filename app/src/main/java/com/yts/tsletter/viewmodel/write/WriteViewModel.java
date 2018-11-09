@@ -9,7 +9,7 @@ import android.view.View;
 import com.yts.tsletter.data.TSLiveData;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.data.realm.RealmService;
-import com.yts.tsletter.ui.ReadActivity;
+import com.yts.tsletter.ui.activity.ReadActivity;
 import com.yts.tsletter.ui.dialog.AlertDialogCreate;
 import com.yts.tsletter.utils.Keys;
 import com.yts.tsletter.utils.SendBroadcast;

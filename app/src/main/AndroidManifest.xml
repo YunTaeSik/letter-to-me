@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,10 +19,13 @@
         </activity>
 
         <activity
-            android:name=".ui.WriteEditActivity"
+            android:name=".ui.activity.WriteEditActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.ReadActivity"
+            android:name=".ui.activity.ReadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ImageViewerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"

@@ -37,4 +37,20 @@ public class MainViewModel extends BaseViewModel {
             ((LottieAnimationView) view).playAnimation();
         }
     }
+
+    public void leftYear() {
+        String currentYear = mCurrentYear.getValue();
+        int year = Integer.parseInt(currentYear);
+        if (year > 1) {
+            year = year - 1;
+            mCurrentYear.setValue(String.valueOf(year));
+        }
+    }
+
+    public void rightYear() {
+        String currentYear = mCurrentYear.getValue();
+        int year = Integer.parseInt(currentYear);
+        year = year + 1;
+        mCurrentYear.setValue(String.valueOf(year));
+    }
 }

@@ -1,4 +1,4 @@
-package com.yts.tsletter.ui;
+package com.yts.tsletter.ui.activity;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;

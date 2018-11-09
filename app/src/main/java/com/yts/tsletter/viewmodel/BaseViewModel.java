@@ -6,11 +6,10 @@ import android.view.View;
 
 
 import com.yts.tsletter.data.TSLiveData;
-import com.yts.tsletter.ui.WriteEditActivity;
+import com.yts.tsletter.ui.activity.WriteEditActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
-import io.reactivex.disposables.CompositeDisposable;
 import io.realm.Realm;
 
 public class BaseViewModel extends ViewModel {
@@ -20,7 +19,7 @@ public class BaseViewModel extends ViewModel {
     public void finish(View view) {
         Context context = view.getContext();
         if (context instanceof AppCompatActivity) {
-            ((AppCompatActivity) context).finish();
+            ((AppCompatActivity) context).onBackPressed();
         }
     }
 

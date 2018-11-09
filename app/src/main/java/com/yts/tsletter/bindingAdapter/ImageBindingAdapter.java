@@ -2,6 +2,7 @@ package com.yts.tsletter.bindingAdapter;
 
 import android.view.View;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.yts.tsletter.GlideApp;
 import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
@@ -27,6 +28,16 @@ public class ImageBindingAdapter {
             } else {
                 view.setVisibility(View.GONE);
             }
+        }
+    }
+
+    @BindingAdapter({"setPhotoView"})
+    public static void setPhotoView(final PhotoView view, Content content) {
+        if (content != null && content.isImage()) {
+            view.setVisibility(View.VISIBLE);
+            GlideApp.with(view.getContext()).load(content.getPath()).fitCenter().into(view);
+        } else {
+            view.setVisibility(View.GONE);
         }
     }
 }

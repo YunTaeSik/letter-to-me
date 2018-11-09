@@ -1,4 +1,4 @@
-package com.yts.tsletter.ui;
+package com.yts.tsletter.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;

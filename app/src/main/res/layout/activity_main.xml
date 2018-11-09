@@ -29,21 +29,41 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/text_year"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="8dp"
-                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_gray_36dp"
-                    android:drawableRight="@drawable/ic_keyboard_arrow_down_gray_36dp"
-                    android:drawablePadding="2dp"
                     android:gravity="center"
-                    android:padding="8dp"
-                    android:text="@{model.mCurrentYear}"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:text="2018" />
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:selectableItemBackgroundBorderless"
+                        android:onClick="@{()->model.leftYear()}"
+                        android:padding="16dp"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+                    <TextView
+                        android:id="@+id/text_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="@{model.mCurrentYear}"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="2018" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foreground="?android:selectableItemBackgroundBorderless"
+                        android:onClick="@{()->model.rightYear()}"
+                        android:padding="16dp"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                </LinearLayout>
 
                 <View style="@style/lineView" />
 
