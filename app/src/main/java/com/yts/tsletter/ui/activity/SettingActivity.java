@@ -23,5 +23,7 @@ public class SettingActivity extends BaseActivity {
         model = ViewModelProviders.of(this).get(SettingViewModel.class);
         binding.setModel(model);
         binding.setLifecycleOwner(this);
+
+        model.setVersion(this);
     }
 }

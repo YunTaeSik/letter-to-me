@@ -1,4 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="invitation_deep_link" tools:ignore="MissingTranslation">"https://sn3d4.app.goo.gl/TSLetter"</string>
+
     <string name="app_name">TSLetter</string>
 
     <string name="start">"Start"</string>
@@ -13,10 +16,14 @@
     <string name="letter">"Letter"</string>
     <string name="delete">"Delete"</string>
     <string name="preview">"Preview"</string>
+    <string name="invite">"Invite"</string>
 
-
+    <string name="add_review">"Add Review"</string>
     <string name="empty_title">"Get Started"</string>
     <string name="edit_image">"Edit Image"</string>
+    <string name="version_information">"Version Information"</string>
+    <string name="service_center">"Service center"</string>
+    <string name="contact_us">"Contact us"</string>
 
     <string name="date_to_receive">"Date to receive"</string>
 
@@ -36,5 +43,12 @@
     <!--error-->
     <string name="error_receivedate">"Please set the date to receive the letter."</string>
     <string name="error_title">"Please enter the title."</string>
+    <string name="error_email">"There are no email applications installed."</string>
+
+    <string name="shared_title">Invite</string>
+    <string name="shared_message">I recommend App to you! :)</string>
+    <string name="shared_call_to_action_text">Install!</string>
+
+    <string name="contact_email">"sky877kr@gmail.com"</string>
 
 </resources>
