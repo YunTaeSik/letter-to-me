@@ -89,6 +89,8 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.app_bar_settings:
+                Intent setting = new Intent(this, SettingActivity.class);
+                startActivity(setting);
                 break;
 
         }

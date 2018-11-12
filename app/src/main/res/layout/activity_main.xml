@@ -49,6 +49,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:onClick="@{(v)->model.changeDate(v)}"
                         android:padding="16dp"
                         android:text="@{model.mCurrentYear}"
                         android:textSize="18sp"

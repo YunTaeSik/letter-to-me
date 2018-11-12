@@ -1,8 +1,10 @@
 package com.yts.tsletter.viewmodel;
 
+import android.content.Context;
 import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.whiteelephant.monthpicker.MonthPickerDialog;
 import com.yts.tsletter.data.TSLiveData;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.data.realm.RealmService;
@@ -38,6 +40,7 @@ public class MainViewModel extends BaseViewModel {
         }
     }
 
+
     public void leftYear() {
         String currentYear = mCurrentYear.getValue();
         int year = Integer.parseInt(currentYear);
@@ -45,6 +48,17 @@ public class MainViewModel extends BaseViewModel {
             year = year - 1;
             mCurrentYear.setValue(String.valueOf(year));
         }
+    }
+
+    public void changeDate(View view) {
+        Context context = view.getContext();
+        MonthPickerDialog.Builder monthPickerDialog = new MonthPickerDialog.Builder(context, new MonthPickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(int selectedMonth, int selectedYear) {
+                mCurrentYear.setValue(String.valueOf(selectedYear));
+            }
+        }, Integer.parseInt(mCurrentYear.getValue()), 1);
+        monthPickerDialog.setMaxYear(Integer.parseInt(mCurrentYear.getValue()) + 100).showYearOnly().build().show();
     }
 
     public void rightYear() {
