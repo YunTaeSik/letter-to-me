@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">私に書く手紙</string>
+
+    <string name="start">"開始"</string>
+    <string name="setting">"設定"</string>
+    <string name="save">"保存"</string>
+    <string name="write">"文を書く"</string>
+    <string name="date">"日"</string>
+    <string name="title">"タイトル"</string>
+    <string name="basics">"基本"</string>
+    <string name="content">"内容"</string>
+    <string name="cancel">"キャンセル"</string>
+    <string name="letter">"メール"</string>
+    <string name="delete">"削除"</string>
+    <string name="preview">"プレビュー"</string>
+    <string name="invite">"招待"</string>
+
+    <string name="empty_title">"開始する"</string>
+    <string name="edit_image">"画像編集"</string>
+    <string name="version_information">"バージョン情報"</string>
+    <string name="service_center">"お客様センター"</string>
+    <string name="contact_us">"お問い合わせ"</string>
+    <string name="add_review">"レビューを記入する"</string>
+
+    <string name="date_to_receive">"受信日"</string>
+
+    <string name="empty_letter_content">"私に手紙を書く。\nきれいなカードが登録されます。"</string>
+
+    <!--hint-->
+    <string name="hint_date">"メールを受信する日付を選択してください。"</string>
+    <string name="hint_title">"タイトルを入力してください。"</string>
+    <string name="hint_content">"内容を入力してください。"</string>
+    <string name="hint_unpublished">"まだ公開されていない\nメールです。"</string>
+
+    <!--message-->
+    <string name="message_save_write">"保存すると修正ができません。保存しますか？"</string>
+    <string name="message_delete_write">"メールを削除しますか？"</string>
+
+    <!--error-->
+    <string name="error_receivedate">"メールを受信する日付を設定してください。"</string>
+    <string name="error_title">"タイトルを入力してください。"</string>
+    <string name="error_email">"インストールされて電子メールプログラムがありません。"</string>
+
+    <string name="shared_title">招待</string>
+    <string name="shared_message">知人にアプリを招待！ :)</string>
+    <string name="shared_call_to_action_text">インストールする</string>
+
+    <string name="contact_email">"sky877kr@gmail.com"</string>
+</resources>

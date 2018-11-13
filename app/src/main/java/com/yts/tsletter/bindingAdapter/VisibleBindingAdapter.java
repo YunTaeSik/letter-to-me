@@ -42,9 +42,13 @@ public class VisibleBindingAdapter {
     public static void setVisible(AppCompatEditText view, Content content, Boolean isEdit) {
         boolean edit = isEdit != null ? isEdit : false;
         String text = content.getText();
-        if ((text == null || text.length() == 0) && !edit) {
-            view.setVisibility(View.INVISIBLE);
+        if (!edit) {
+            view.setEnabled(false);
+            if ((text == null || text.length() == 0)) {
+                view.setVisibility(View.INVISIBLE);
+            }
         } else {
+            view.setEnabled(true);
             view.setVisibility(View.VISIBLE);
         }
 

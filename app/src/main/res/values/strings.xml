@@ -7,7 +7,7 @@
     <string name="interstitial_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/4365985844"</string>
     <string name="reward_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/1235591327"</string>
 
-    <string name="app_name">TSLetter</string>
+    <string name="app_name">Letter to me</string>
 
     <string name="start">"Start"</string>
     <string name="setting">"Setting"</string>

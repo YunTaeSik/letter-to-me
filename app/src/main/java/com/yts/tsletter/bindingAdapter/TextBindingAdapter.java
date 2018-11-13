@@ -3,6 +3,7 @@ package com.yts.tsletter.bindingAdapter;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.yts.tsletter.R;
@@ -95,5 +96,9 @@ public class TextBindingAdapter {
         }
     }
 
-
+    @BindingAdapter({"setIsEdit"})
+    public static void setIsEdit(EditText view, Boolean isEdit) {
+        boolean edit = isEdit != null ? isEdit : false;
+        view.setEnabled(edit);
+    }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TSLetter</string>
+    <string name="app_name">나에게 쓰는 편지</string>
 
     <string name="start">"시작"</string>
     <string name="setting">"설정"</string>
