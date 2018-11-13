@@ -16,7 +16,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-9788292917303375~4800196150" />
 
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,6 +35,9 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.WriteEditActivity"
             android:screenOrientation="portrait" />
