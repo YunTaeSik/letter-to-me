@@ -17,6 +17,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.google.android.gms.ads.AdView
+            setBanner="@{model.mAdRequest}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adSize="BANNER"
+            app:adUnitId="@string/banner_ad_id" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"

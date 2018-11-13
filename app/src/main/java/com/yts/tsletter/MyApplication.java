@@ -2,6 +2,7 @@ package com.yts.tsletter;
 
 import android.content.Context;
 
+import com.google.android.gms.ads.MobileAds;
 import com.yts.tsletter.data.Migration;
 
 import androidx.multidex.MultiDex;
@@ -15,6 +16,7 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("TsLetter.realm")
@@ -24,11 +26,7 @@ public class MyApplication extends MultiDexApplication {
                 .build();
         Realm.setDefaultConfiguration(config);
 
-    }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
+        MobileAds.initialize(this, getString(R.string.ad_app_id));
     }
 }

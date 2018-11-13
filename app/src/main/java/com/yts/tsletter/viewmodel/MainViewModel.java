@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.ads.AdRequest;
 import com.whiteelephant.monthpicker.MonthPickerDialog;
 import com.yts.tsletter.data.TSLiveData;
 import com.yts.tsletter.data.model.Write;
@@ -14,6 +15,7 @@ import java.util.List;
 
 
 public class MainViewModel extends BaseViewModel {
+
     public TSLiveData<List<Write>> mWriteList = new TSLiveData<>();
     public TSLiveData<String> mCurrentYear = new TSLiveData<>();
 

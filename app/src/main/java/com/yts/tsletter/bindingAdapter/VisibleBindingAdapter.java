@@ -2,11 +2,14 @@ package com.yts.tsletter.bindingAdapter;
 
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.utils.DateFormat;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -17,6 +20,16 @@ import androidx.databinding.BindingAdapter;
 public class VisibleBindingAdapter {
     @BindingAdapter({"setVisible"})
     public static void setVisible(ProgressBar view, Boolean isLoading) {
+        boolean loading = isLoading != null ? isLoading : false;
+        if (loading) {
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+    }
+
+    @BindingAdapter({"setVisible"})
+    public static void setVisible(TextView view, Boolean isLoading) {
         boolean loading = isLoading != null ? isLoading : false;
         if (loading) {
             view.setVisibility(View.VISIBLE);

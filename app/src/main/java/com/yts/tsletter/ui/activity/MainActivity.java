@@ -38,6 +38,7 @@ public class MainActivity extends BaseActivity {
         binding.setModel(model);
         binding.setLifecycleOwner(this);
 
+        model.setAdRequest();
         model.setCurrentYear(Calendar.getInstance());
 
         setSupportActionBar(binding.bottomAppBar);

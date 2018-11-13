@@ -2,6 +2,11 @@
 
     <string name="invitation_deep_link" tools:ignore="MissingTranslation">"https://sn3d4.app.goo.gl/TSLetter"</string>
 
+    <string name="ad_app_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375~4800196150"</string>
+    <string name="banner_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/1961731088"</string>
+    <string name="interstitial_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/4365985844"</string>
+    <string name="reward_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/1235591327"</string>
+
     <string name="app_name">TSLetter</string>
 
     <string name="start">"Start"</string>

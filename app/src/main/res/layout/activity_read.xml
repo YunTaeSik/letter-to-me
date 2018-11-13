@@ -57,7 +57,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true">
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -111,10 +112,12 @@
                             android:textColor="@color/gray_light" />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            setVisible="@{model.isAdLoad}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:gravity="center"
+                            android:onClick="@{(v)->model.onPreview(v)}"
                             android:text="@string/preview"
                             android:textStyle="bold" />
                     </LinearLayout>
