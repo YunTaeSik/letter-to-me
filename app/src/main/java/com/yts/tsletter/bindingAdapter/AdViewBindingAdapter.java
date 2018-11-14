@@ -10,7 +10,7 @@ import androidx.databinding.BindingAdapter;
 public class AdViewBindingAdapter {
     @BindingAdapter({"setBanner"})
     public static void setBanner(AdView view, AdRequest adRequest) {
-        view.setVisibility(View.GONE);
+        view.setVisibility(View.VISIBLE);
         view.loadAd(adRequest);
     }
 }
