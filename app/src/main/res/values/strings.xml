@@ -22,6 +22,10 @@
     <string name="delete">"Delete"</string>
     <string name="preview">"Preview"</string>
     <string name="invite">"Invite"</string>
+    <string name="font">"font"</string>
+
+    <string name="nanum_pen">"Nanum Pen"</string>
+    <string name="inklipquid">"Inklipquid"</string>
 
     <string name="add_review">"Add Review"</string>
     <string name="empty_title">"Get Started"</string>

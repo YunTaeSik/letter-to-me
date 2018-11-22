@@ -14,6 +14,10 @@
     <string name="delete">"삭제"</string>
     <string name="preview">"미리보기"</string>
     <string name="invite">"초대하기"</string>
+    <string name="font">"폰트"</string>
+
+    <string name="nanum_pen">"나눔펜"</string>
+    <string name="inklipquid">"잉퀴리드"</string>
 
     <string name="empty_title">"시작하기"</string>
     <string name="edit_image">"이미지 편집"</string>

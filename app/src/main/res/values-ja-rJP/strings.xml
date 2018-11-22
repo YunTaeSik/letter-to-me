@@ -14,6 +14,10 @@
     <string name="delete">"削除"</string>
     <string name="preview">"プレビュー"</string>
     <string name="invite">"招待"</string>
+    <string name="font">"フォント"</string>
+
+    <string name="nanum_pen">"Nanum Pen"</string>
+    <string name="inklipquid">"Inklipquid"</string>
 
     <string name="empty_title">"開始する"</string>
     <string name="edit_image">"画像編集"</string>

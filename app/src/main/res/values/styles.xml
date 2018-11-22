@@ -8,6 +8,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textColorPrimary">@color/textColor</item>
@@ -20,6 +21,16 @@
         </item>
         <item name="android:colorButtonNormal" tools:targetApi="lollipop">@color/background</item>
         <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+    </style>
+
+    <style name="AppThemeTwo" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/nanumpen</item>
+    </style>
+
+    <style name="AppThemeThree" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/inklipquid</item>
     </style>
 
     <style name="lineView">

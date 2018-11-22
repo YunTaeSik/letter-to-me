@@ -17,7 +17,9 @@ import android.view.MenuItem;
 import com.yts.tsletter.BaseActivity;
 import com.yts.tsletter.data.model.Write;
 import com.yts.tsletter.ui.adapter.MainAdapter;
+import com.yts.tsletter.utils.Keys;
 import com.yts.tsletter.utils.SendBroadcast;
+import com.yts.tsletter.utils.SharedPrefsUtils;
 import com.yts.tsletter.viewmodel.MainViewModel;
 import com.yts.tsletter.R;
 import com.yts.tsletter.databinding.MainViewBinding;
@@ -107,6 +109,8 @@ public class MainActivity extends BaseActivity {
                     if (model != null) {
                         model.refreshWriteList();
                     }
+                } else if (action.equals(SendBroadcast.CHANGE_FONT)) {
+                    recreate();
                 }
             }
         }
@@ -116,6 +120,7 @@ public class MainActivity extends BaseActivity {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SendBroadcast.SAVE_WRITE);
         intentFilter.addAction(SendBroadcast.DELETE_WRITE);
+        intentFilter.addAction(SendBroadcast.CHANGE_FONT);
         return intentFilter;
     }
 }

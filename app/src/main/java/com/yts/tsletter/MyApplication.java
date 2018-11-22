@@ -13,10 +13,10 @@ import io.realm.RealmConfiguration;
 
 public class MyApplication extends MultiDexApplication {
 
+
     @Override
     public void onCreate() {
         super.onCreate();
-
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("TsLetter.realm")
@@ -28,5 +28,11 @@ public class MyApplication extends MultiDexApplication {
 
 
         MobileAds.initialize(this, getString(R.string.ad_app_id));
+        setTheme(R.style.AppThemeTwo);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
     }
 }

@@ -9,7 +9,10 @@ import android.widget.TextView;
 import com.yts.tsletter.R;
 import com.yts.tsletter.data.model.Content;
 import com.yts.tsletter.data.model.Write;
+import com.yts.tsletter.ui.activity.MainActivity;
 import com.yts.tsletter.utils.DateFormat;
+import com.yts.tsletter.utils.Keys;
+import com.yts.tsletter.utils.SharedPrefsUtils;
 
 import java.text.DateFormatSymbols;
 import java.util.Locale;
@@ -100,5 +103,19 @@ public class TextBindingAdapter {
     public static void setIsEdit(EditText view, Boolean isEdit) {
         boolean edit = isEdit != null ? isEdit : false;
         view.setEnabled(edit);
+    }
+
+    @BindingAdapter({"setFontText"})
+    public static void setFontText(TextView view, int theme) {
+        Context context = view.getContext();
+        String text = context.getString(R.string.basics);
+        if (theme == 0) {
+            text = context.getString(R.string.basics);
+        } else if (theme == 1) {
+            text = context.getString(R.string.nanum_pen);
+        } else if (theme == 2) {
+            text = context.getString(R.string.inklipquid);
+        }
+        view.setText(text);
     }
 }
