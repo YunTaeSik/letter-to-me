@@ -43,7 +43,7 @@
     <!--error-->
     <string name="error_receivedate">"편지를 받을 날짜를 설정해주세요."</string>
     <string name="error_title">"제목을 입력해주세요."</string>
-    <string name="error_email">"설치된 이메일 프로그램이 없습니다.."</string>
+    <string name="error_email">"설치된 이메일 프로그램이 없습니다."</string>
 
     <string name="shared_title">초대하기</string>
     <string name="shared_message">지인에게 어플을 초대합니다! :)</string>

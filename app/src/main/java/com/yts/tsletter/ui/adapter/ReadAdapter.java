@@ -50,7 +50,6 @@ public class ReadAdapter extends RecyclerView.Adapter {
         } else {
             return HEADER_TYPE;
         }
-
     }
 
     @Override

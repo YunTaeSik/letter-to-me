@@ -155,7 +155,5 @@
             android:padding="16dp"
             android:text="@string/invite"
             android:textSize="16sp" />
-
-
     </LinearLayout>
 </layout>

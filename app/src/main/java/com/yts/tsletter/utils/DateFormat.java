@@ -25,7 +25,8 @@ public class DateFormat {
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(date);
-        return calendar;
+        return calendar;`
+
     }
 
     public static int getWeek(long date) {
