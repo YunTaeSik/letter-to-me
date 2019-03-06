@@ -10,10 +10,21 @@ import com.yts.tsletter.utils.SendBroadcast;
 import com.yts.tsletter.utils.SharedPrefsUtils;
 import com.yts.tsletter.utils.ShowIntent;
 
+import androidx.databinding.ObservableBoolean;
+
 
 public class SettingViewModel extends BaseViewModel {
     public TSLiveData<String> version = new TSLiveData<>();
     public TSLiveData<Integer> theme = new TSLiveData<>(1);
+    public TSLiveData<Boolean> ENABLE_ALARM = new TSLiveData<>(false);
+
+
+    public void init(Context context) {
+        ENABLE_ALARM.setValue(SharedPrefsUtils.getBooleanPreference(context, Keys.ENABLE_ALARM, true));
+        setVersion(context);
+        setTheme(context);
+
+    }
 
     public void setVersion(Context context) {
         try {
@@ -29,6 +40,14 @@ public class SettingViewModel extends BaseViewModel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void onClickAlarm(View view) {
+        if (ENABLE_ALARM != null && ENABLE_ALARM.getValue() != null) {
+            ENABLE_ALARM.setValue(!ENABLE_ALARM.getValue());
+            SharedPrefsUtils.setBooleanPreference(view.getContext(), Keys.ENABLE_ALARM, ENABLE_ALARM.getValue());
+        }
+
     }
 
     public void onClickContactUs(View view) {

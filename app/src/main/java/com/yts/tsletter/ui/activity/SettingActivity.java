@@ -31,8 +31,7 @@ public class SettingActivity extends BaseActivity {
         binding.setModel(model);
         binding.setLifecycleOwner(this);
 
-        model.setVersion(this);
-        model.setTheme(this);
+        model.init(this);
 
         registerReceiver(broadcastReceiver, getIntentFilter());
     }

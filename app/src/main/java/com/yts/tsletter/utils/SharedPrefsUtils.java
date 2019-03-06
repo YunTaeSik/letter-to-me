@@ -73,11 +73,11 @@ public class SharedPrefsUtils {
         return myArrayList;
     }
 
-    public static boolean getBooleanPreference(Context context, String key) {                                     ///스트링값 얻어오기 위한 함수
+    public static boolean getBooleanPreference(Context context, String key, boolean defaultValue) {                                     ///스트링값 얻어오기 위한 함수
         Boolean value = false;
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         if (preferences != null) {
-            value = preferences.getBoolean(key, false);
+            value = preferences.getBoolean(key, defaultValue);
         }
         return value;
     }

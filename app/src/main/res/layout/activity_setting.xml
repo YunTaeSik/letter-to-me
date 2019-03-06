@@ -110,6 +110,29 @@
                 app:cornerRadius="2dp" />
 
         </LinearLayout>
+        <!--알람 설정-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:text="@string/alarm"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:checked="@{model.ENABLE_ALARM}"
+                android:onClick="@{(v)->model.onClickAlarm(v)}" />
+        </LinearLayout>
 
         <View
             style="@style/lineView"
@@ -132,7 +155,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:onClick="@{(v)->model.onClickContactUs(v)}"
             android:padding="16dp"
             android:text="@string/contact_us"
@@ -141,7 +164,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:onClick="@{(v)->model.onClickReview(v)}"
             android:padding="16dp"
             android:text="@string/add_review"
@@ -150,7 +173,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:onClick="@{(v)->model.onClickInvite(v)}"
             android:padding="16dp"
             android:text="@string/invite"

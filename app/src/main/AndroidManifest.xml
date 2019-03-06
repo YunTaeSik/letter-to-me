@@ -61,6 +61,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
+        <service
+            android:name=".service.NotificationJobFireBaseService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name=".service.AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}"

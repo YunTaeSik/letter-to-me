@@ -7,6 +7,10 @@
     <string name="interstitial_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/4365985844"</string>
     <string name="reward_ad_id" tools:ignore="MissingTranslation">"ca-app-pub-9788292917303375/1235591327"</string>
 
+
+    <string name="notification_channel_id" tools:ignore="MissingTranslation">"notification_channel_id_ts_letter"</string>
+    <string name="notification_channel_name" tools:ignore="MissingTranslation">"notification_channel_name_ts_letter"</string>
+
     <string name="app_name">Letter to me</string>
 
     <string name="start">"Start"</string>
@@ -59,5 +63,8 @@
     <string name="shared_call_to_action_text">Install!</string>
 
     <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="arrived_letter_title">The letter that I wrote arrived.</string>
+    <string name="arrived_letter_content">Touch to read the letter..</string>
+    <string name="alarm">Alarm</string>
 
 </resources>

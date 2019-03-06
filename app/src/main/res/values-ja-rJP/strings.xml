@@ -50,4 +50,7 @@
     <string name="shared_call_to_action_text">インストールする</string>
 
     <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="arrived_letter_title">私に書いた手紙が来ました。</string>
+    <string name="arrived_letter_content">手紙を読むにはタッチしてください。</string>
+    <string name="alarm">アラーム</string>
 </resources>

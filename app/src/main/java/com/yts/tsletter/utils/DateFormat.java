@@ -13,6 +13,9 @@ public class DateFormat {
 
     public final static String WRITE_RECEIVE_FORMAT = "yyyy  MM.dd E";
 
+
+    public final static String DAY_FORMAT = "d";
+
     public static String getDate(long date, String pattern) {
         SimpleDateFormat formatter = new SimpleDateFormat(pattern, Locale.ENGLISH);
         Date d = new Date(date);
@@ -25,7 +28,7 @@ public class DateFormat {
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(date);
-        return calendar;`
+        return calendar;
 
     }
 
@@ -37,5 +40,7 @@ public class DateFormat {
         return System.currentTimeMillis() <= date;
     }
 
-
+    public static boolean isCompareDay(long one, long two) {
+        return getDate(one, DAY_FORMAT).equals(getDate(two, DAY_FORMAT));
+    }
 }

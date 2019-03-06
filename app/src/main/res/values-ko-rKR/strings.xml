@@ -50,4 +50,7 @@
     <string name="shared_call_to_action_text">설치하기</string>
 
     <string name="contact_email">"sky877kr@gmail.com"</string>
+    <string name="arrived_letter_title">나에게 쓴 편지가 도착했습니다.</string>
+    <string name="arrived_letter_content">편지를 읽으시려면 터치하세요.</string>
+    <string name="alarm">알람</string>
 </resources>

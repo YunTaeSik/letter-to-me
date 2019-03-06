@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.yts.tsletter.BaseActivity;
 import com.yts.tsletter.data.model.Write;
+import com.yts.tsletter.service.JobSchedulerStart;
 import com.yts.tsletter.ui.adapter.MainAdapter;
 import com.yts.tsletter.utils.Keys;
 import com.yts.tsletter.utils.SendBroadcast;
@@ -45,7 +46,7 @@ public class MainActivity extends BaseActivity {
 
         setSupportActionBar(binding.bottomAppBar);
         binding.animationView.playAnimation();
-
+        JobSchedulerStart.start(this);
         observe();
         registerReceiver(broadcastReceiver, getIntentFilter());
     }

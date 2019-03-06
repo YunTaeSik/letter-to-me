@@ -28,9 +28,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        IntroBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_intro);
-
-        /*drawableAnimation(binding.imgCreate.getDrawable());*/
+        DataBindingUtil.setContentView(this, R.layout.activity_intro);
 
         mCompositeDisposable = new CompositeDisposable();
         mCompositeDisposable.add(Single.timer(1800, TimeUnit.MILLISECONDS)
@@ -43,6 +41,7 @@ public class IntroActivity extends BaseActivity {
                         Intent intent = new Intent(IntroActivity.this, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                 }));
     }
